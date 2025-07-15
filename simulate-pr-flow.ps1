@@ -62,7 +62,7 @@ while ($true) {
 
     # Short pause before comments
     Start-Sleep -Seconds 2
-
+#sample commit
     # Send TEST_AND_MERGE comment for each story
     foreach ($story in $userStories) {
         $prs = $storyMap[$story]
