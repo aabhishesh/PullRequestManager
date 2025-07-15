@@ -16,17 +16,21 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Base64;
 
-@Service
-@ConditionalOnMissingBean(BuildService.class)
 public class JenkinsBuildService implements BuildService {
 
-    @Autowired
+
     private OkHttpClient client;
+
+    public JenkinsBuildService(OkHttpClient okHttpClient) {
+        this.client = okHttpClient;
+    }
 
     private static final String JENKINS_URL = "https://your-jenkins-domain";
     private static final String JOB_NAME = "api-automation"; // make this to be read from config and fail if value is not present.
     private static final String USERNAME = "tbBuildUser";
     private static final String AUTH_TOKEN = "auth-token";
+
+
 
     @Override
     public void build(String userStoryNumber) {

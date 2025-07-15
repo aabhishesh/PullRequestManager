@@ -13,16 +13,17 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@Component
-@ConditionalOnMissingBean(MergeQueueManager.class)
 public class MergeQueueManager {
 
-
-    @Autowired
     private MergeQueueRegistry mergeQueueRegistryImpl;
 
-    @Autowired
     private UserStoryRegistry userStoryRegistryImpl;
+
+    @Autowired
+    public MergeQueueManager(MergeQueueRegistry mergeQueueRegistryImpl, UserStoryRegistry userStoryRegistryImpl) {
+        this.mergeQueueRegistryImpl = mergeQueueRegistryImpl;
+        this.userStoryRegistryImpl = userStoryRegistryImpl;
+    }
 
     private final AtomicBoolean running = new AtomicBoolean(true);
     private final AtomicBoolean processing = new AtomicBoolean(false);

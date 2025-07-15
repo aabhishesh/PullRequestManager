@@ -10,8 +10,6 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 
-@Service
-@ConditionalOnMissingBean(MergeQueueRegistry.class)
 public class MergeQueueRegistryImpl implements MergeQueueRegistry {
 
     private final Queue<String> mergeQueue = new ConcurrentLinkedQueue<>();

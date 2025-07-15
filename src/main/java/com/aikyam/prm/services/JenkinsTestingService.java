@@ -17,19 +17,19 @@ import java.net.URL;
 import java.util.Base64;
 
 
-@Service
-@ConditionalOnMissingBean(TestingService.class)
 public class JenkinsTestingService implements TestingService {
 
 
-    @Autowired
     private OkHttpClient client;
+
+    public JenkinsTestingService(OkHttpClient okHttpClient) {
+        this.client = okHttpClient;
+    }
 
     private static final String JENKINS_URL = "https://your-jenkins-domain";
     private static final String JOB_NAME = "api-automation"; // make this to be read from config and fail if value is not present.
     private static final String USERNAME = "tbBuildUser";
     private static final String AUTH_TOKEN = "auth-token";
-
 
     @Override
     public boolean triggerRegressionSuite(String userStoryNumber) {

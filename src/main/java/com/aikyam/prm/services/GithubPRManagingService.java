@@ -17,12 +17,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
-@ConditionalOnMissingBean(PRManagingService.class)
 public class GithubPRManagingService implements PRManagingService {
 
-    @Autowired
+
     private OkHttpClient client;
+
+    public GithubPRManagingService(OkHttpClient client) {
+        this.client = client;
+    }
 
     private final String GITHUB_TOKEN = "your-github-token";
     private final String GITHUB_API_URL = "https://api.github.com";

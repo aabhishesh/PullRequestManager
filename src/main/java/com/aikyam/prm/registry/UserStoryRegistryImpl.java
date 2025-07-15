@@ -12,8 +12,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-@Service
-@ConditionalOnMissingBean(UserStoryRegistry.class)
 public class UserStoryRegistryImpl implements UserStoryRegistry {
 
     private Map<String, List<PR>> userStoryRegistry = new ConcurrentHashMap<>();
