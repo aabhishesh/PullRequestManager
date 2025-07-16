@@ -1,6 +1,7 @@
 package com.aikyam.prm.controllers;
 
 import com.aikyam.prm.interfaces.MergeQueueRegistry;
+import com.aikyam.prm.interfaces.PRManagerController;
 import com.aikyam.prm.interfaces.UserStoryRegistry;
 import com.aikyam.prm.model.CommentEnum;
 import com.aikyam.prm.model.PR;
@@ -9,16 +10,20 @@ import com.aikyam.prm.model.PRUserStoryRequest;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-public class PRManagerController {
+public class SampleTestPRManagerControllerImpl implements PRManagerController {
 
-    @Autowired
     private UserStoryRegistry userStoryRegistryImpl;
 
-    @Autowired
     private MergeQueueRegistry mergeQueueRegistryImpl;
+
+    @Autowired
+    public SampleTestPRManagerControllerImpl(UserStoryRegistry userStoryRegistryImpl, MergeQueueRegistry mergeQueueRegistryImpl) {
+        this.userStoryRegistryImpl = userStoryRegistryImpl;
+        this.mergeQueueRegistryImpl = mergeQueueRegistryImpl;
+    }
 
     @PostMapping(value = "/pr/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public boolean addPrToUserStory(@RequestBody PRUserStoryRequest request) {
@@ -105,5 +110,15 @@ public class PRManagerController {
         }
         Integer waitingNumber  = mergeQueueRegistryImpl.getQueueNumberForUserStory(userStoryNumber);
         return "Your current number in queue is - " + waitingNumber;
+    }
+
+    @PostMapping("/github/webhook")
+    public ResponseEntity<String> handleWebhook (
+            @RequestHeader("X-GitHub-Event") String event,
+            @RequestBody String payload
+    ) {
+        System.out.println("🔔 Event Type: " + event);
+        System.out.println("📦 Payload:\n" + payload);
+        return ResponseEntity.ok("Webhook received");
     }
 }

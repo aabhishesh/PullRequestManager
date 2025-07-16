@@ -170,7 +170,8 @@ You can convert this Mermaid diagram to an image using online tools (e.g., https
 - **Security Enhancements:** Add authentication/authorization for API endpoints.
 - **Metrics & Monitoring:** Expose more detailed metrics for queue and merge health.
 - **Custom Workflow Steps:** Allow users to define custom pre/post-merge actions via configuration or plugins.
-
+- metrics to monitor incoming payload size for event and notify if it crosses a threshold. 
+    since github only supports 25MB payload size for webhook only.
 ---
 
 ## Contributing
