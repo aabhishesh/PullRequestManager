@@ -174,6 +174,35 @@ You can convert this Mermaid diagram to an image using online tools (e.g., https
     since github only supports 25MB payload size for webhook only.
 ---
 
+## Sample GitHub Webhook Payload
+
+Use the following sample JSON payload to simulate GitHub webhook behavior (e.g., for testing with Postman or curl):
+
+```
+{
+  "action": "opened",
+  "number": 1,
+  "pull_request": {
+    "id": 123456,
+    "title": "Add new feature",
+    "body": "Please pull these changes",
+    "user": {
+      "login": "octocat"
+    }
+  },
+  "repository": {
+    "id": 987654,
+    "name": "webhook-demo",
+    "full_name": "octocat/webhook-demo"
+  },
+  "sender": {
+    "login": "octocat"
+  }
+}
+```
+
+---
+
 ## Contributing
 
 Contributions are welcome! Please open issues or submit pull requests for new features, bug fixes, or documentation improvements.
