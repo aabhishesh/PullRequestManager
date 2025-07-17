@@ -208,3 +208,7 @@ Use the following sample JSON payload to simulate GitHub webhook behavior (e.g.,
 Contributions are welcome! Please open issues or submit pull requests for new features, bug fixes, or documentation improvements.
 
 ---
+aws secretsmanager get-secret-value \
+--secret-id github-webhook-secret  \
+--query SecretString \
+--output text

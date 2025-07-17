@@ -3,10 +3,10 @@ package com.aikyam.prm.config;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.ssm.SsmClient;
-import software.amazon.awssdk.services.ssm.model.GetParameterRequest;
-import software.amazon.awssdk.services.ssm.model.GetParameterResponse;
-import software.amazon.awssdk.services.ssm.model.SsmException;
+import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
+import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
+import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
+import software.amazon.awssdk.services.secretsmanager.model.SecretsManagerException;
 
 @Component
 public class GithubSecretProvider {
@@ -20,19 +20,15 @@ public class GithubSecretProvider {
 
     @PostConstruct
     public void init() {
-//        try (SsmClient ssmClient = SsmClient.builder().region(Region.AP_SOUTH_1).build()) {
-//            GetParameterResponse response = ssmClient.getParameter(
-//                    GetParameterRequest.builder()
-//                            .name(GITHUB_SECRET_PARAMETER_NAME)
-//                            .withDecryption(true)
-//                            .build()
-//            );
-//            this.webhookSecret = response.parameter().value();
-//            if (webhookSecret == null || webhookSecret.isEmpty()) {
-//                throw new RuntimeException("GitHub secret is empty");
-//            }
-//        } catch (SsmException e) {
-//            throw new RuntimeException("Failed to fetch GitHub secret from AWS SSM", e);
-//        }
+        try (SecretsManagerClient client = SecretsManagerClient.builder().region(Region.AP_SOUTH_1).build()) {
+            GetSecretValueRequest getSecretValueRequest = GetSecretValueRequest.builder()
+                    .secretId(GITHUB_SECRET_PARAMETER_NAME)
+                    .build();
+
+            GetSecretValueResponse getSecretValueResponse = client.getSecretValue(getSecretValueRequest);
+            this.webhookSecret = getSecretValueResponse.secretString();
+        } catch (SecretsManagerException e) {
+            throw new RuntimeException("Failed to retrieve secret: " + e.awsErrorDetails().errorMessage(), e);
+        }
     }
 }

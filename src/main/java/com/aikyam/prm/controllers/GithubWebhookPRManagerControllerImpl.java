@@ -31,9 +31,13 @@ public class GithubWebhookPRManagerControllerImpl {
             @RequestHeader(value = "X-Hub-Signature", required = false) String signature,
             @RequestBody String body
     ) {
-//        if (!verifySignature(body, signature)) {
-//            return ResponseEntity.status(403).body("Invalid signature");
-//        }
+
+        System.out.println(signature);
+        System.out.println("body received : " + body);
+
+        if (!verifySignature(body, signature)) {
+            return ResponseEntity.status(403).body("Invalid signature");
+        }
 
         try {
             switch (event) {
@@ -60,6 +64,7 @@ public class GithubWebhookPRManagerControllerImpl {
 
     private boolean verifySignature(String payload, String signature) {
         try {
+            System.out.println(githubSecretProvider.getWebhookSecret());
             SecretKeySpec keySpec = new SecretKeySpec(githubSecretProvider.getWebhookSecret().getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(keySpec);

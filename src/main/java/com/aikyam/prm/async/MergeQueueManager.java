@@ -43,14 +43,11 @@ public class MergeQueueManager {
         String userStory = null;
         try {
             while(running.get() && !Thread.currentThread().isInterrupted()) {
-
-                System.out.println("trying to merge something if present");
                 userStory = mergeQueueRegistryImpl.getUserStoryToMerge();
                 if (StringUtils.isEmpty(userStory)) {
                     System.out.println("Less work, nothing to merge, sleeping for 5 secs, ciao amigo");
                     try {
-                        Thread.sleep(5000);
-                        System.out.println("Sleep is done, trying again");
+                        Thread.sleep(30000);
                         continue;
                     } catch (InterruptedException e) {
                         System.err.println("Queue processing failed for user story - " + userStory + " with reason - " + e.getMessage());

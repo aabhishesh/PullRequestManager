@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 @ConditionalOnMissingBean(QueueHealthChecker.class)
 public class QueueHealthChecker {
@@ -13,7 +15,7 @@ public class QueueHealthChecker {
     @Autowired
     private MergeQueueManager queueManager;
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
     public void checkHealth() {
         if (!queueManager.isProcessing()) {
             System.out.println("[HealthCheck] Queue processor not running. Starting it...");
