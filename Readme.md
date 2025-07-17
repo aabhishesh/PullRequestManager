@@ -21,7 +21,7 @@ It ensures that PRs with dependencies are grouped, tested, and merged in a contr
 
 ## Architecture & Main Components
 
-
+#Sample commit
 ### Architecture Diagram
 
 Below is a high-level architecture and flow diagram for the PRM system, using Mermaid syntax. You can render this diagram using Mermaid live editors, VS Code plugins, or GitHub's built-in Mermaid support.
