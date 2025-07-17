@@ -18,6 +18,7 @@ It ensures that PRs with dependencies are grouped, tested, and merged in a contr
 - **Configurable:** All major functionalities can be enabled/disabled and customized.
 
 ---
+##sample commit
 
 ## Architecture & Main Components
 
