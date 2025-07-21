@@ -7,6 +7,8 @@ It ensures that PRs with dependencies are grouped, tested, and merged in a contr
 
 ---
 
+sample comit
+
 ## Features
 
 - **Feature-based PR Grouping:** Automatically groups PRs under a feature (based on branch naming convention).
