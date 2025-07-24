@@ -1,0 +1,83 @@
+{
+  "action": "created",
+  "issue": {
+    "url": "https://api.github.com/repos/aabhishesh/PullRequestManager/issues/5",
+    "repository_url": "https://api.github.com/repos/aabhishesh/PullRequestManager",
+    "labels_url": "https://api.github.com/repos/aabhishesh/PullRequestManager/issues/5/labels{/name}",
+    "comments_url": "https://api.github.com/repos/aabhishesh/PullRequestManager/issues/5/comments",
+    "events_url": "https://api.github.com/repos/aabhishesh/PullRequestManager/issues/5/events",
+    "number": 5,
+    "title": "US213321 - updated readme",
+    "user": {
+      "login": "aabhishesh",
+      "id": 19504640,
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "labels": [],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2025-07-21T06:18:07Z",
+    "updated_at": "2025-07-21T06:19:15Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "active_lock_reason": null,
+    "draft": false,
+    "pull_request": {
+      "url": "https://api.github.com/repos/aabhishesh/PullRequestManager/pulls/5",
+      "html_url": "https://github.com/aabhishesh/PullRequestManager/pull/5",
+      "diff_url": "https://github.com/aabhishesh/PullRequestManager/pull/5.diff",
+      "patch_url": "https://github.com/aabhishesh/PullRequestManager/pull/5.patch",
+      "merged_at": null
+    },
+    "body": "updating read me with sample commit",
+    "state_reason": null
+  },
+  "comment": {
+    "url": "https://api.github.com/repos/aabhishesh/PullRequestManager/issues/comments/3095361259",
+    "id": 3095361259,
+    "user": {
+      "login": "aabhishesh",
+      "id": 19504640,
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "created_at": "2025-07-21T06:19:15Z",
+    "updated_at": "2025-07-21T06:19:15Z",
+    "author_association": "OWNER",
+    "body": "/test-and-merge",
+    "performed_via_github_app": null
+  },
+  "repository": {
+    "id": 1019692878,
+    "statuses_url": "https://api.github.com/repos/aabhishesh/PullRequestManager/statuses/{sha}",
+    "name": "PullRequestManager",
+    "full_name": "aabhishesh/PullRequestManager",
+    "private": false,
+    "allow_squash_merge": true,
+    "allow_merge_commit": true,
+    "allow_rebase_merge": true,
+    "allow_auto_merge": false,
+    "delete_branch_on_merge": false,
+    "allow_update_branch": false,
+    "use_squash_pr_title_as_default": false,
+    "squash_merge_commit_message": "COMMIT_MESSAGES",
+    "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+    "merge_commit_message": "PR_TITLE",
+    "merge_commit_title": "MERGE_MESSAGE"
+  },
+  "sender": {
+    "login": "aabhishesh",
+    "id": 19504640,
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  }
+}
+
