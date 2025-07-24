@@ -1,7 +1,7 @@
 # Configuration
 
 $webhookUrl = "http://localhost:8080/github/webhook"
-$githubSecret = "DragonSLayer@2569"
+$githubSecret = ""
 $testMode = $false # set to $false to send real events
 
 $prTemplate = Get-Content -Raw -Path "./create-pr-refined.json" | ConvertFrom-Json
