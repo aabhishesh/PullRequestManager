@@ -1,6 +1,6 @@
 # CONFIGURATION
 $webhookUrl     = "http://localhost:8080/github/webhook"
-$githubSecret   = "DragonSLayer@2569"
+$githubSecret   = ""
 $testMode       = $false  # set to $false to send real events
 
 # Read templates (update paths if needed)

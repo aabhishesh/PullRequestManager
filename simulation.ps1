@@ -1,5 +1,5 @@
 ﻿# ========== CONFIGURATION ==========
-$token = "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"     # <-- Replace with your PAT
+$token = ""     # <-- Replace with your PAT
 $org = "temp-prm-demo-org"                             # <-- Replace with your org name
 $baseRepoName = "sample-repo"
 $repoCount = 10

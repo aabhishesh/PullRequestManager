@@ -1,8 +1,8 @@
 # ========== CONFIGURATION ==========
 $webhookUrl     = "http://localhost:8080/github/webhook"
-$githubSecret   = "DragonSLayer@2569"
+$githubSecret   = ""
 $testMode       = $true  # set to $false to send real events and make real commits
-$githubToken    = "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"      # <-- REPLACE
+$githubToken    = ""      # <-- REPLACE
 $org            = "temp-prm-demo-org"          # <-- REPLACE
 
 $repos   = @("repoA","repoB","repoC","repoD","repoE","repoF","repoG","repoH","repoI","repoJ")
